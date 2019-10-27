@@ -7,12 +7,12 @@ window.onload = function() {
 
     smallMatrixCheker.onchange = function() {
         if (event.returnValue) {
-            getJsonForCanvas('./data/4x4.json', true);  
+            getJsonForCanvas('/data/4x4.json', true);  
         }
     };
     largeMatrixCheker.onchange = function() {
         if (event.returnValue) {
-            getJsonForCanvas('./data/32x32.json', false);
+            getJsonForCanvas('/data/32x32.json', false);
         }
     };
     imageChecker.onchange = function() {
