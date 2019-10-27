@@ -7,12 +7,12 @@ window.onload = function() {
 
     smallMatrixCheker.onchange = function() {
         if (event.returnValue) {
-            getJsonForCanvas('/data/4x4.json', true);  
+            getJsonForCanvas('./data/4x4.json', true);  
         }
     };
     largeMatrixCheker.onchange = function() {
         if (event.returnValue) {
-            getJsonForCanvas('/data/32x32.json', false);
+            getJsonForCanvas('./data/32x32.json', false);
         }
     };
     imageChecker.onchange = function() {
@@ -65,7 +65,7 @@ window.onload = function() {
     const canvas = document.getElementById('work-canvas')
     ctx = canvas.getContext("2d");
     base_image = new Image();
-    base_image.src = './data/image.png';
+    base_image.src = '/data/image.png';
     ctx.width = 320;
     ctx.height = 320;
     base_image.onload = function(){
