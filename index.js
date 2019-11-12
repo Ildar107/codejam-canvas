@@ -1,28 +1,24 @@
-
 window.onload = function() {
-    const smallMatrixCheker = document.getElementById('small');
-    const largeMatrixCheker = document.getElementById('large');
+    const smallMatrixChecker = document.getElementById('small');
+    const largeMatrixChecker = document.getElementById('large');
     const imageChecker = document.getElementById('image');
     const canvas = document.getElementById('work-canvas')
 
-    smallMatrixCheker.onchange = function() {
-        if (event.returnValue) {
-            getJsonForCanvas('./data/4x4.json', true);  
-        }
-    };
-    largeMatrixCheker.onchange = function() {
-        if (event.returnValue) {
-            getJsonForCanvas('./data/32x32.json', false);
-        }
-    };
-    imageChecker.onchange = function() {
-        if (event.returnValue) {
-            setPictureToCanvas();
-        }
-    };
+    smallMatrixChecker.parentElement.addEventListener('click', (e) => {
+        smallMatrixChecker.checked = true;
+        getJsonForCanvas('./data/4x4.json', true);
+    });
+    largeMatrixChecker.parentElement.addEventListener('click', (e) => {
+        largeMatrixChecker.checked = true;
+        getJsonForCanvas('./data/32x32.json', false);
+    });
+    imageChecker.parentElement.addEventListener('click', (e) => {
+        imageChecker.checked = true;
+        setPictureToCanvas();
+    });
 
     imageChecker.checked = true;
-    imageChecker.onchange();
+    setPictureToCanvas();
   };
 
   function changePicture(array, isSmall)
@@ -32,21 +28,17 @@ window.onload = function() {
     let width = array[0].length;
     let height = array.length;
     let scale = 1;
-
-    if(isSmall)
-        scale = 80;
-    else
-        scale = 10;
-
-    canvas.width = width * scale; 
-    canvas.height = height * scale; 
-
-    for(var row = 0; row < width; row++) {
-        for(var col = 0; col < height; col++) {
-            if(!isSmall)
+    canvas.width = 320; 
+    canvas.height = 320; 
+    scale = canvas.width/height;
+    for(let row = 0; row < width; row++) {
+        for(let col = 0; col < height; col++) {
+            if(!isSmall) {
                 ctx.fillStyle = `rgba(${array[row][col]})`;
-             else
+            } 
+            else {
                 ctx.fillStyle = "#" + array[row][col];
+            }
             ctx.fillRect(row * scale, col * scale, scale, scale);
         }
     }
@@ -55,7 +47,7 @@ window.onload = function() {
   function getJsonForCanvas(url, isSmall)
   {
     fetch(url).then(response => {
-        let array = response.json().then(data => changePicture(data, isSmall), error =>  this.alert(error))
+        response.json().then(data => changePicture(data, isSmall), error =>  this.alert(error))
     },
     onRejected => this.alert("Ошибка чтения данных"));
   }
@@ -64,11 +56,9 @@ window.onload = function() {
   {
     const canvas = document.getElementById('work-canvas')
     ctx = canvas.getContext("2d");
-    base_image = new Image();
-    base_image.src = './data/image.png';
+    const image = new Image();
+    image.src = './data/image.png';
     ctx.width = 320;
     ctx.height = 320;
-    base_image.onload = function(){
-       ctx.drawImage(base_image, 0, 0,320,320);
-    }
+    image.onload = () => ctx.drawImage(image, 0, 0,320,320);
   } 

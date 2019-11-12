@@ -5,10 +5,10 @@ header {
     align-content: center;
     box-shadow: 0 12px 7px -5px #a09494;
     padding: 5px;
-    margin-bottom: 10px;
+    height: 7vh;
 }
 
-.header--title{
+.header__title {
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -16,7 +16,7 @@ header {
     line-height: 23px;
 }
 
-.header--menu {
+.header__menu {
     display: flex;
     align-items: center;
     padding-right: 10px;
@@ -25,12 +25,11 @@ header {
 
 .whiteboard {
     display: flex;
-    height: 840px;
-    min-height: 100%;
+    height: 90vh;
     margin-bottom: 10px;
 }
 
-.whiteboard--tools {
+.tools {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,13 +42,13 @@ header {
     line-height: 24px;
 }
 
-.whiteboard--tools--main {
+.instrument {
     border: 1px solid #8080804f;
     flex-basis: 30%;
     width: 216px;
 }
 
-.whiteboard--tools--main div {
+.instrument div {
     display: flex;
     align-items: center;
     height: 63px;
@@ -58,23 +57,23 @@ header {
     text-align: left;
 }
 
-.whiteboard--tools--main div:hover {
+.instrument div:hover {
     border-top: 1px solid #8080804f;
     border-bottom: 1px solid #8080804f;
 }
 
-.whiteboard--tools--main div img {
+.instrument div img {
     margin-right: 15px;
 }
 
-.whiteboard--tools--color {
+.color {
     border: 1px solid #8080804f;
     flex-basis: 30%;
     width: 216px;
     
 }
 
-.whiteboard--tools--color > div {
+.color > div {
     display: flex;
     align-items: center;
     height: 63px;
@@ -83,7 +82,7 @@ header {
     text-align: left;
 }
 
-.whiteboard--tools--color > div:hover {
+.color > div:hover {
     border-top: 1px solid #8080804f;
     border-bottom: 1px solid #8080804f;
 }
@@ -95,30 +94,30 @@ header {
     margin-right: 15px;
 }
 
-.current-color--circle {
+.color__current-circle {
     background-color:gray;
 }
 
-.prev-color--circle {
+.color__prev-circle {
     background-color:rgb(128, 128, 128);
 }
 
-.red-color--circle {
+.color__red-circle {
     background-color:red;
 }
 
-.blue-color--circle {
+.color__blue-circle {
     background-color:blue;
 }
 
-.whiteboard--work-place {
+.work-place{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.whiteboard--changer {
+.change-tools {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,13 +125,13 @@ header {
     flex-basis: 20%;
 }
 
-.whiteboard--changer--swither {
+.switcher {
     border: 1px solid #8080804f;
     flex-basis: 30%;
     width: 216px;
 }
 
-.whiteboard--changer--swither div {
+.switcher div {
     display: flex;
     align-items: center;
     height: 63px;
@@ -141,19 +140,11 @@ header {
     text-align: left;
 }
 
-.whiteboard--changer--swither > div:hover {
+.switcher > div:hover {
     border-top: 1px solid #8080804f;
     border-bottom: 1px solid #8080804f;
 }
 
-.whiteboard--changer--swither div input {
+.switcher div input {
     margin-right: 10px;
-}
-
-
-
-footer { 
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 -10px 7px -5px #a09494;
 }
