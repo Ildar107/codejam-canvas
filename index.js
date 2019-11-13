@@ -17,7 +17,7 @@ window.onload = function() {
         setPictureToCanvas();
     });
 
-    imageChecker.checked = true;
+  imageChecker.checked = true;
     setPictureToCanvas();
   };
 
